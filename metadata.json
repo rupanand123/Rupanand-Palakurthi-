@@ -1,0 +1,8 @@
+{
+  "name": "Remix: Rupanand Palakurthi AI Portfolio",
+  "description": "A JARVIS-inspired cosmic portfolio with holographic projects, neon glassmorphism, and futuristic animations for an AI and full-stack developer.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
