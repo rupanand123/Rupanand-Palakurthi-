@@ -37,6 +37,197 @@ const playCyberBeep = (frequency = 900, duration = 0.08, type: OscillatorType = 
   }
 };
 
+// Complete, robust client-side semantic matching response generator in case backend API is not present (e.g. Vercel static hosting)
+const getLocalJarvisResponse = (userPrompt: string): string => {
+  const query = userPrompt.toLowerCase().trim();
+
+  // 1. PROJECTS & SPECIALIZED SYTEMS
+  if (query.includes("agrismart") || query.includes("farm") || query.includes("crop") || query.includes("agri")) {
+    return `🤖 **AgriSmart AI - Smart Farming Assistant (01/2026 — 03/2026)**
+    
+• **Overview**: An AI-powered precision agriculture platform helping farmers diagnose plant pathology and optimize soil nutrients.
+• **Core Capabilities**: Real-time crop leaf disease detection using a custom-trained Convolutional Neural Network (CNN) across 35 disease classes, soil chemical composition analysis, and direct NPK/fertilizer recommendations.
+• **Tech Stack**: Python, FastAPI, React.js, Computer Vision, Plant Pathology CNN, and XGBoost.
+• **Metrics**: Fully responsive full-stack platform integrated into standard farming HUD dashboards.`;
+  }
+
+  if (query.includes("fake news") || query.includes("propaganda") || query.includes("news") || query.includes("bias")) {
+    return `🤖 **Fake News Detector (01/2025 — 02/2025)**
+    
+• **Overview**: An NLP-based intelligence model that inspects text articles to flag bias, propaganda, or fraudulent news.
+• **Core Capabilities**: Performs extensive text preprocessing including tokenization, NLTK stopword cleansing, stemming/lemmatization, and uses TF-IDF Vectorization to feed supervised Machine Learning classifiers.
+• **Tech Stack**: Python, NLP libraries, Scikit-Learn, NLTK, Random Forest, and Decision Trees.
+• **Metrics**: Reached **96.4% testing accuracy** against an evaluation corpus of 20,000+ benchmark articles.`;
+  }
+
+  if (query.includes("disease") || query.includes("medical") || query.includes("symptom") || query.includes("health") || query.includes("predict")) {
+    return `🤖 **Disease Prediction AI (01/2026 — 02/2026)**
+    
+• **Overview**: Healthcare support system predicting potential medical diagnoses based on user, sensory, or historical symptom datasets.
+• **Core Capabilities**: Analyzes lists of user symptoms mapping to 135+ disease classes. Employs advanced classification models to provide confidence-score breakdowns of possible diagnoses.
+• **Tech Stack**: Python, Flask, Pandas, Scikit-Learn (SVM Classifier, Random Forest, Decision Tree).
+• **Performance**: High reliability scoring (**94.8% diagnostic precision**) with prompt local processing latency under **15ms**.`;
+  }
+
+  if (query.includes("speech") || query.includes("emotion") || query.includes("voice") || query.includes("audio") || query.includes("vocal") || query.includes("acoustic")) {
+    return `🤖 **Speech Emotion Recognition System (01/2025 — 03/2025)**
+    
+• **Overview**: High-fidelity acoustic intelligence model designed to recognize and categorize human emotional states from voice signals.
+• **Core Capabilities**: Extracts multi-dimensional audio characteristics like Mel-Frequency Cepstral Coefficients (MFCCs), chroma features, and spectral contrast using Librosa, training multi-layer perceptrons to classify happy, sad, angry, surprised, or fearful states.
+• **Tech Stack**: Python, Librosa, Audio Feature Extraction, Multi-Layer Perceptron (MLP), and FastAPI.
+• **Metrics**: Attained a stellar **91.2% F1-score** on standard acoustic test-benches (24.5 kHz audio sampling).`;
+  }
+
+  if (query.includes("credit") || query.includes("scoring") || query.includes("loan") || query.includes("bank") || query.includes("risk")) {
+    return `🤖 **Credit Scoring Model (02/2026 — 03/2026)**
+    
+• **Overview**: Predictive pipeline grading loan applicant creditworthiness to assess default probabilities.
+• **Core Capabilities**: Analyzes user debt ratios, historical late payments, income stability thresholds, and demographic metrics using supervised classification trees. Supports automated risk clustering.
+• **Tech Stack**: Python, Pandas, Scikit-Learn, Random Forest, FastAPI, and MongoDB.
+• **Performance**: Achieved **0.93 ROC-AUC score** in test classification validation pipelines.`;
+  }
+
+  if (query.includes("project") || query.includes("portfolio") || query.includes("systems") || query.includes("work")) {
+    return `🤖 **Rupanand's High-Dimension Systems Directory**:
+    
+1. **AgriSmart AI (01/2026 - 03/2026)**: Smart IoT farming assistant & Plant Disease Leaf CNN classifier.
+2. **Fake News Detector (01/2025 - 02/2025)**: NLP system detecting deceptive publications with a 96.4% scoring accuracy.
+3. **Disease Prediction AI (01/2026 - 02/2026)**: Diagnostic symptom predictor mapping 135+ disease classes with 15ms latency.
+4. **Speech Emotion Recognition (01/2025 - 03/2025)**: Librosa audio feature-extraction and multi-layered neural perceptron classifier.
+5. **Credit Scoring Model (02/2026 - 03/2026)**: Risk assessment automation grading default risk categories.
+    
+*Type or select any specific project name for expanded telemetry details!*`;
+  }
+
+  // 2. EDUCATION & GENERAL DETAILS
+  if (query.includes("gpa") || query.includes("gudlavalleru") || query.includes("college") || query.includes("education") || query.includes("university") || query.includes("degree") || query.includes("qualification") || query.includes("credential")) {
+    return `🎓 **Education Profile -- Rupanand Palakurthi**:
+    
+• **Degree**: Bachelor of Technology (B.Tech) in **Artificial Intelligence & Machine Learning**
+• **Institution**: Seshadri Rao Gudlavalleru Engineering College, Gudlavalleru, Andhra Pradesh, India.
+• **Academic Standings**: **GPA: 7.59** (Undergraduate AIML coursework)
+• **Timeline**: 07/2024 to Present (Active candidate)`;
+  }
+
+  // 3. EXPERIENCE SPECIFIC
+  if (query.includes("experience") || query.includes("job") || query.includes("intern") || query.includes("career") || query.includes("work history") || query.includes("nasscom") || query.includes("smartbridge") || query.includes("inamigos")) {
+    return `💼 **Professional Career Telemetry**:
+    
+1. **AI & Web Development Intern** (05/2026 — Present)
+   *Organization*: **inamigos foundation** (Chhattisgarh, India - Remote)
+   *Deliverables*:
+   - Engineered intelligent AI-powered web environments using Python and full-stack utilities.
+   - Connected machine learning pipelines with FastAPI and responsive React layouts.
+   - Conducted debugging, structural refactoring, and agile code streams.
+   
+2. **AWS Cloud Computing Virtual Intern** (01/2026 — 03/2026)
+   *Organization*: **NASSCOM FutureSkills Prime & SmartBridge**
+   *Deliverables*:
+   - Deployed active virtualization nodes, security parameters, VPC networking, and cloud storage systems.
+   - Designed scalable architectures complying with standard AWS Cloud Practitioner protocols.`;
+  }
+
+  // 4. CERTIFICATIONS
+  if (query.includes("certif") || query.includes("diploma") || query.includes("license") || query.includes("badge")) {
+    return `📜 **Verified Telemetry Certifications**:
+    
+• **Machine Learning using Python** - Simplilearn SkillUp (11/2024)
+• **AWS Cloud Computing Virtual Internship** - SmartBridge & NASSCOM (01/2026)
+• **Introduction to Generative AI Studio** - Google Cloud via Simplilearn (08/2025)
+• **Introduction to Image Generation** - Google Cloud via Simplilearn (09/2024)
+• **Python Software, Application, Games, Automation** - Udemy Standard (05/2025)
+• **Website UI/UX Designing using ChatGPT** - Simplilearn SkillUp (12/2025)
+• **AI Agents for Beginners** - Simplilearn (12/2025)
+• **Introduction to Large Language Models** - Google Cloud via Simplilearn (12/2025)`;
+  }
+
+  // 5. SKILLS SPECIFIC
+  if (query.includes("skill") || query.includes("tech") || query.includes("languages") || query.includes("python") || query.includes("react") || query.includes("stack") || query.includes("fastapi") || query.includes("flask") || query.includes("node") || query.includes("database") || query.includes("mongodb")) {
+    return `🛠️ **Interactive Skills Portfolio**:
+    
+• **Core Programming**: Python, ESNext JavaScript, HTML5/CSS3
+• **AI / Deep Learning / ML**: Natural Language Processing (NLP), Convolutional Neural Networks (CNN/Librosa), Predictive Modeling, Data cleansing & SciKit-Learn features.
+• **Web Engineering**: React.js (modern SPA architectures), Tailwind CSS, Node.js/Express, FastAPI, Flask frameworks.
+• **Databases / Automation**: MongoDB, MySQL, and N8n workflow-automations.
+• **Developer Tools**: Git/GitHub, Visual Studio Code workspace environments.`;
+  }
+
+  // 6. CONTACT / INTERACTION RULES
+  if (query.includes("contact") || query.includes("hire") || query.includes("email") || query.includes("phone") || query.includes("linkedin") || query.includes("number") || query.includes("call") || query.includes("address") || query.includes("coordinates") || query.includes("recruit")) {
+    return `📞 **Direct Communication Terminal**:
+    
+• **Email**: [rupanandpalakurthi@gmail.com](mailto:rupanandpalakurthi@gmail.com)
+• **Phone**: [+91 70950 52818](tel:+917095052818)
+• **Location**: Machilipatnam, Andhra Pradesh, India // UTC+05:30 (IST)
+• **LinkedIn**: [Rupanand's Profile](https://linkedin.com/in/rupanandpalakurthi)
+• **GitHub Core**: [rupanandpalakurthi on GitHub](https://github.com/rupanandpalakurthi)
+• **Availability**: Open to immediate Internships, Remote junior roles, or full-time associate tracks globally.`;
+  }
+
+  // 7. GREETINGS
+  if (query.includes("hello") || query.includes("hi") || query.includes("hey") || query.includes("greetings") || query.includes("yo") || query.includes("who are you") || query.includes("jarvis")) {
+    return `Greetings. I am J.A.R.V.I.S., Rupanand's interactive 2035 system Core. Currently interfacing on client-terminal direct mode.
+    
+My active database is complete. You can ask me regarding Rupanand's B.Tech AIML studies, machine learning projects (like **AgriSmart AI** or **Speech Emotion Recognition**), NASSCOM internships, or how to reach him directly.
+    
+*How may I assist your telemetry search today?*`;
+  }
+
+  // GENERAL OVERVIEW FALLBACK
+  return `🤖 **Client-Node Telemetry Processed**:
+  
+I have analyzed your request regarding Rupanand's workspace catalog. As his system core (running on secure static edge mode), I hold records for:
+- **Education**: B.Tech in AI & Machine Learning at Gudlavalleru College (7.59 GPA).
+- **Core Projects**: AgriSmart AI (Plant pathology Leaf CNN), Speech Emotion Detector, and Credit Scoring models.
+- **Internships**: AI & Web Intern at inamigos foundation & AWS Cloud Intern at NASSCOM.
+- **Capabilities**: Expert-level Python scripting, automated N8n workflows, React, and FastAPI backends.
+  
+Feel free to ask me about any specific project details, certification lists, or get his contact links directly!`;
+};
+
+// Simple helper to parse inline **bold text** into structured JSX highlight spans
+const formatLineWithBold = (line: string) => {
+  if (!line.includes("**")) return line;
+  const parts = line.split(/\*\*(.*?)\*\*/g);
+  return parts.map((part, index) => {
+    if (index % 2 === 1) {
+      return (
+        <strong key={index} className="text-cyan-400 font-bold tracking-wide">
+          {part}
+        </strong>
+      );
+    }
+    return part;
+  });
+};
+
+// Complete custom log formatting module representing futuristic tabular streams
+const renderCyberMessage = (content: string) => {
+  return content.split("\n").map((line, i) => {
+    const trimmedLine = line.trim();
+    if (!trimmedLine) return <div key={i} className="h-2" />;
+
+    const isBullet = trimmedLine.startsWith("•") || trimmedLine.startsWith("-") || trimmedLine.startsWith("*");
+    const rawContent = isBullet ? trimmedLine.replace(/^[-•*]\s*/, "") : line;
+    const formattedText = formatLineWithBold(rawContent);
+
+    if (isBullet) {
+      return (
+        <div key={i} className="flex items-start gap-2 pl-3 mt-1.5 text-slate-300">
+          <span className="text-cyan-400/80 select-none animate-pulse">•</span>
+          <p className="flex-1 text-slate-300 leading-relaxed font-sans text-[13px]">{formattedText}</p>
+        </div>
+      );
+    }
+
+    return (
+      <p key={i} className={`mt-1 text-slate-200 leading-relaxed text-[13px] ${line.startsWith("🤖") ? "font-display font-medium text-cyan-300" : "font-sans"}`}>
+        {formattedText}
+      </p>
+    );
+  });
+};
+
 export default function JarvisConsole() {
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
@@ -49,6 +240,17 @@ export default function JarvisConsole() {
   const [inputValue, setInputValue] = useState("");
   const [isPending, setIsPending] = useState(false);
   const [audioFeedback, setAudioFeedback] = useState(true);
+  
+  // Smart detection: Run in pure static mode if on Vercel host OR if the server-endpoint has previously failed.
+  const [useLocalOnly, setUseLocalOnly] = useState<boolean>(() => {
+    try {
+      const hostname = window.location.hostname;
+      return hostname.includes("vercel") || hostname.includes("netlify") || hostname.includes("github.io");
+    } catch (e) {
+      return false;
+    }
+  });
+
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
   // Auto scroll to bottom
@@ -85,8 +287,26 @@ export default function JarvisConsole() {
     setInputValue("");
     setIsPending(true);
 
+    // Bypass network fetch completely in static hosting situations to prevent 404 network warnings and keep it instantaneous
+    if (useLocalOnly) {
+      setTimeout(() => {
+        const localReply = getLocalJarvisResponse(textToSend);
+        triggerAudioBeep(650, 0.12);
+        setMessages(prev => [
+          ...prev,
+          {
+            id: "jarvis-local-" + Date.now(),
+            role: "assistant",
+            content: localReply,
+            timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+          }
+        ]);
+        setIsPending(false);
+      }, 550);
+      return;
+    }
+
     try {
-      // Build message payload
       const payloadMessages = [...messages, userMsg].map(m => ({
         role: m.role,
         content: m.content
@@ -116,14 +336,20 @@ export default function JarvisConsole() {
         }
       ]);
     } catch (err: any) {
-      console.error(err);
-      triggerAudioBeep(300, 0.3); // low failure sound
+      console.warn("API Node unavailable. Resolving response via local Edge telemetry model.", err);
+      
+      // Cache the endpoint loss state to bypass network streams on all future chats
+      setUseLocalOnly(true);
+
+      const localReply = getLocalJarvisResponse(textToSend);
+      triggerAudioBeep(750, 0.12);
+
       setMessages(prev => [
         ...prev,
         {
-          id: "err-" + Date.now(),
+          id: "jarvis-local-" + Date.now(),
           role: "assistant",
-          content: `⚡ **SYSTEM DIAGNOSTIC FAULT**: ${err?.message || "Quantum signal channel timed out."} JARVIS indicates Offline Mode. Rupanand can be contacted directly at **rupanandpalakurthi@gmail.com** or **+917095052818** to secure communication rules.`,
+          content: localReply,
           timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
         }
       ]);
@@ -212,20 +438,10 @@ export default function JarvisConsole() {
                     : "bg-slate-900/40 text-slate-300 border border-slate-800 rounded-tl-none whitespace-pre-line"
                 }`}
               >
-                {/* Clean inline markdown lists/highlights */}
-                {msg.content.includes("**") ? (
-                  // Simple renderer to avoid importing heavy markdown components
-                  msg.content.split("\n").map((line, i) => {
-                    let cleaned = line;
-                    cleaned = cleaned.replace(/\*\*(.*?)\*\*/g, "$1");
-                    return (
-                      <p key={i} className={cleaned.startsWith("-") || cleaned.startsWith("*") ? "pl-3 text-cyan-300 mt-1" : "mt-1 text-slate-200"}>
-                        {line}
-                      </p>
-                    );
-                  })
-                ) : (
+                {isUser ? (
                   msg.content
+                ) : (
+                  renderCyberMessage(msg.content)
                 )}
               </div>
             </div>
@@ -235,7 +451,7 @@ export default function JarvisConsole() {
         {isPending && (
           <div className="flex items-center gap-2.5 text-cyan-400 animate-pulse font-bold tracking-widest text-[11px] py-2">
             <RefreshCw className="w-3.5 h-3.5 animate-spin" />
-            ANAL_CORE_SIGNAL PROCESS IN PROGRESS...
+            CORE_SIGNAL_STREAM PROCESS IN PROGRESS...
           </div>
         )}
 
