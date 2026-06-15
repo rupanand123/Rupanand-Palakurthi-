@@ -1,4 +1,6 @@
 # Rupanand Palakurthi | AI & Full Stack Architect Portfolio (2035 Edition)
+<img width="1917" height="898" alt="image" src="https://github.com/user-attachments/assets/cd7e972e-ba25-41fc-8668-1c1ee67cb821" />
+
 
 An ultra-elegant, futuristic developer portfolio for **Rupanand Palakurthi**, themed as a 2035 tactile JARVIS Command Console. Combining sophisticated dark cosmic aesthetics, glassmorphic HUD interfaces, responsive audio feedback, real-time ML simulations, and an interactive Gemini AI conversational core.
 
